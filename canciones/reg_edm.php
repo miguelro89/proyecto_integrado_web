@@ -111,7 +111,7 @@
 
                       <?php
                         //Hacemos la conexion, hacemos la consulta de las canciones filtradas por genero
-                        $conexion=mysqli_connect('localhost','id1022280_root', '12345', 'id1022280_proyecto');
+                        $conexion=mysqli_connect('localhost','root','','prueba2');
                         $consulta="SELECT * FROM canciones WHERE id_genero= 'edm'";
                         //y los valores de la conexion y consulta los guardamos en otra variable
                         $result = mysqli_query($conexion, $consulta);

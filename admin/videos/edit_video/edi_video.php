@@ -28,7 +28,7 @@
        session_destroy();
      header("Location:../");
     }else{
-        $connection = new mysqli('localhost','id1022280_root', '12345', 'id1022280_proyecto');
+        $connection = new mysqli("localhost", "root", "", "proyectophp");
            $id=$_GET['id'];
         $consulta="SELECT * FROM videos WHERE id_video=$id";
         $result= $connection -> query($consulta);

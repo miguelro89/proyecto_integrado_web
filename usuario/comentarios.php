@@ -11,30 +11,44 @@
 
     <title>Freelancer - Start Bootstrap Theme</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Theme CSS -->
-    <link href="../estilo/css/freelancer.min.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
- <style>
-    span {
-    width: 100px;
-    display: inline-block;
-    text-align: left;
-    }
-</style>
+    <<?php  
+        session_start();
+        switch ($_SESSION['tema']){
+        case "plantilla2":
+                echo '<link href="../estilo2/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">';
+                echo '<link href="../estilo2/css/freelancer.min.css" rel="stylesheet">';
+                echo '<link href="../estilo2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">';
+                echo '<script src="../estilo2/vendor/jquery/jquery.min.js"></script>';
+                echo '<script src="../estilo2/vendor/bootstrap/js/bootstrap.min.js"></script>';
+                echo '<script src="../estilo2/js/jqBootstrapValidation.js"></script>';
+                echo '<script src="../estilo2/js/contact_me.js"></script>';
+                echo '<script src="../estilo2/js/freelancer.min.js"></script>';
+            break;
+            
+        case "plantilla3":
+                echo '<link href="../estilo3/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">';
+                echo '<link href="../estilo3/css/freelancer.min.css" rel="stylesheet">';
+                echo '<link href="../estilo3/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">';
+                echo '<script src="../estilo3/vendor/jquery/jquery.min.js"></script>';
+                echo '<script src="../estilo3/vendor/bootstrap/js/bootstrap.min.js"></script>';
+                echo '<script src="../estilo3/js/jqBootstrapValidation.js"></script>';
+                echo '<script src="../estilo3/js/contact_me.js"></script>';
+                echo '<script src="../estilo3/js/freelancer.min.js"></script>';
+            break;
+        
+        default:
+           echo '<link href="../estilo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+                 <link href="../estilo/css/freelancer.min.css" rel="stylesheet">
+                 <link href="../estilo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+                 <script src="../estilo/vendor/jquery/jquery.min.js"></script>
+                 <script src="../estilo/vendor/bootstrap/js/bootstrap.min.js"></script>
+                 <script src="../estilo/js/jqBootstrapValidation.js"></script>
+                 <script src="../estilo/js/contact_me.js"></script>
+                 <script src="../estilo/js/freelancer.min.js"></script>';
+                
+        }
+    
+    ?>
 
 </head>
 
@@ -58,7 +72,7 @@
                         <a href="#page-top"></a>
                     </li>
                       <li class="page-scroll">
-                        <a href="../usuario/index.html">Volver</a>
+                        <a href="../usuario/index.php">Volver</a>
                     </li>
                     <li class="page-scroll">
                         <a href="../logueo/logout.php">Cerrar Sesion</a>
@@ -99,13 +113,12 @@
                 </div>
             </div>
             <?php
-            session_start();
                     //si la conexion es distinta a la de admin te redirige a la pagina principal y si no crea la conexion
                     if ($_SESSION["rol"]!='usuario'){
                             session_destroy();
                             header("Location:../");
                     }else{
-                            $connection = new mysqli('localhost','id1022280_root', '12345', 'id1022280_proyecto');
+                            $connection = new mysqli("localhost", "root", "", "proyectophp");
                             //TESTING IF THE CONNECTION WAS RIGHT
                             if ($connection->connect_errno) {
                                 printf("Connection failed: %s\n", $connection->connect_error);
@@ -151,7 +164,7 @@
                         echo "<br/><br/><br/><br/><br/><br/>";
                         echo "<h3 id='homeHeading'>El comentario se ha enviado correctamente</h3>";
                         echo "<br/><br/>";
-                        echo "<h3 id='homeHeading'><a href='../usuario/index.html'>volver</a></h3>";
+                        echo "<h3 id='homeHeading'><a href='../usuario/index.php'>volver</a></h3>";
                         echo "<br/><br/>";
                     }
     

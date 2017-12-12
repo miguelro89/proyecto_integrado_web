@@ -106,7 +106,7 @@
 
                         <?php
 
-                          $conexion=mysqli_connect('localhost','id1022280_root', '12345', 'id1022280_proyecto');
+                          $conexion=mysqli_connect('localhost','root','','prueba2');
                           $consulta="SELECT * FROM videos WHERE genero='trap'";
                           $result = mysqli_query($conexion, $consulta);
 

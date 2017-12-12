@@ -101,17 +101,14 @@
     <?php
 
           //Creamos de nuevo la conexion, para poder añadir usuarios
-          $connection = new mysqli('localhost','id1022280_root', '12345', 'id1022280_proyecto');
-         //comprobamos que no hay errores en la conexion
-         if ($connection->connect_errno) {
-           printf("Connection failed: %s\n", $connection->connect_error);
-           exit();
-         }
+         include '../conexion.php';
 
-          $consulta= "INSERT INTO usuarios VALUES('null','".$_POST["nombre"]."','".$_POST["apellido"]."','".$_POST['email']."',md5('".$_POST['pass']."'),'usuario')";
+          $consulta= "INSERT INTO usuarios (cod_usuario, nombre, apellidos, correo_electronico, password, rol) VALUES('null','".$_POST["nombre"]."','".$_POST["apellido"]."','".$_POST['email']."',md5('".$_POST['pass']."'),'usuario')";
+        
         
 
           $result = $connection->query($consulta);
+                    
           if (!$result) {
 
               echo "<br/><br/><br/><br/><br/><br/>";

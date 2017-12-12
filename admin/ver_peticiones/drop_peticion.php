@@ -52,12 +52,7 @@
      header("Location:../");
     }else{
   //si la sesion es la de admin, me crea la conexion
-        $connection = new mysqli('localhost','id1022280_root', '12345', 'id1022280_proyecto');
-        //Comprobamos que la consulta es correcta
-        if ($connection->connect_errno) {
-            printf("Connection failed: %s\n", $connection->connect_error);
-            exit();
-        }
+        include '../../conexion.php';
     }
 
   //Una vez logueado, si existe la variable id cogemos la id.

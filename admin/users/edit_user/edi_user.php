@@ -28,21 +28,14 @@
        session_destroy();
      header("Location:../");
     }else{
-        $connection = new mysqli('localhost','id1022280_root', '12345', 'id1022280_proyecto');
-            $id=$_GET['id'];
-        $consulta="SELECT * FROM usuarios WHERE cod_usuario=$id";
-        $result= $connection -> query($consulta);
-        
-        if(!$result){
-            echo "error al obtener datos del usuario";
-        }else{
+        include '../../../conexion.php';
+        if ($result = $connection->query("SELECT * FROM usuarios;")) {
              $ver_datos = $result->fetch_object();
+            
+        }else{
+            echo "error al obtener datos del usuario";
         }
-        //TESTING IF THE CONNECTION WAS RIGHT
-        if ($connection->connect_errno) {
-            printf("Connection failed: %s\n", $connection->connect_error);
-            exit();
-        }
+        
     }
     //TESTING THE CONECTION
     ?>

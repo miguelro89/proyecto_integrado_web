@@ -82,12 +82,7 @@
                             session_destroy();
                             header("Location:../");
                     }else{
-                            $connection = new mysqli('localhost','id1022280_root', '12345', 'id1022280_proyecto');
-                            //TESTING IF THE CONNECTION WAS RIGHT
-                            if ($connection->connect_errno) {
-                                printf("Connection failed: %s\n", $connection->connect_error);
-                                exit();
-                            }
+                            include '../../../conexion.php';
                     }
                     //Si el rol "NO" es admin redirigir a index.php
                 

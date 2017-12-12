@@ -82,12 +82,8 @@
                             header("Location:../");
                     //Si el rol es admin me crea la conexion
                     } else {
-                         $connection = new mysqli('localhost','id1022280_root', '12345', 'id1022280_proyecto');
-                       //Conexion a la base de datos (localhost, usuario, contraseña, bd).
-                        if ($connection->connect_errno) {
-                            printf("Connection failed: %s\n", $connection->connect_error);
-                            exit();
-                        }
+                         //si la sesion es la de admin, me crea la conexion
+                        include '../../../conexion.php';
                     }
                    
                 

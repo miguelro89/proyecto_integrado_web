@@ -83,13 +83,7 @@
                     //si no me crea la conexion   
                     } else {
                         
-                        $connection = new mysqli('localhost','id1022280_root', '12345', 'id1022280_proyecto');
-                            //Conexion a la base de datos (localhost, usuario, contraseña, bd).
-
-                        if ($connection->connect_errno) {
-                                printf("Connection failed: %s\n", $connection->connect_error);
-                                exit();
-                        }
+                       include '../../../conexion.php';
                     }
                     //Si el rol "NO" es admin redirigir a index.php
                 
@@ -112,13 +106,8 @@
 
                 //hacemos la consulta para que me muestre todos los usuarios
                 if ($result = $connection->query("SELECT * FROM usuarios;")) {
-                } else {
-                // Si no hace la consulta es error, por lo que muestro el error
-                    echo "Error: " . $sql . "<br>" . mysqli_error($connection);
-                }
-                // mostramos todos los datos de nuestros usuarios
-                    // y esa informacion la almacenamos en result
-                while($obj = $result->fetch_object()) {
+                    
+                     while($obj = $result->fetch_object()) {
                     echo "<tr>";
                         echo "<td>".$obj->cod_usuario."</td>";
                         echo "<td>".$obj->nombre."</td>";
@@ -130,8 +119,21 @@
                             <img src='../../../imgs/editar.png' width='30%';/>
                           </a>
                         </form></td>";
+                        echo "<td><form id='form0' method='get'>
+                            <a href='../descargaruser.php?id=$obj->cod_usuario'>
+                             <img src='../../../imgs/pdf.png' width='30%';/>
+                          </a>
+                        </form></td>";
                     echo "</tr>";
-          }
+                        }
+                    
+                } else {
+                // Si no hace la consulta es error, por lo que muestro el error
+                    echo "Error: " . $sql . "<br>" . mysqli_error($connection);
+                }
+                // mostramos todos los datos de nuestros usuarios
+                    // y esa informacion la almacenamos en result
+               
           
           $result->close(); // Cierramos la consulta
           unset($obj);

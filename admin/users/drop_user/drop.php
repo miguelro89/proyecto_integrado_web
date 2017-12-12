@@ -52,12 +52,7 @@
      header("Location:../");
   //en caso contrario me crea la conexion
     }else{
-        $connection = new mysqli('localhost','id1022280_root', '12345', 'id1022280_proyecto');
-        //Comprobamos que se ha realizado la conexion
-        if ($connection->connect_errno) {
-            printf("Connection failed: %s\n", $connection->connect_error);
-            exit();
-        }
+       include '../../../conexion.php';
     }
 
   //cogemos por get el campo id del archivo anterior para poder borrar al usuario

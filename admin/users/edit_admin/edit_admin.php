@@ -80,7 +80,7 @@
                     if ($_SESSION["rol"] != "admin") {
                         header('Location: ../index.html');
                     } else {
-                        $connection = new mysqli('localhost','id1022280_root', '12345', 'id1022280_proyecto'); 
+                        $connection = new mysqli("localhost", "root", "", "proyectophp"); 
                         //Metemos en una variable, el nombre a través del $_session
                         $id_usu=$_SESSION['username'];
                         //hacemos la consulta comparando los nombres de la BD con nuestro usuario logueado

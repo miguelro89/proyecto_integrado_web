@@ -124,6 +124,25 @@
                         <span class="skills">
                         </span>
                     </div>
+                        <div class="intro-text">
+                        <a href="descargapdf/index_pdf.php">
+                            <span class="name" id="blanco">Descargar PDFS</span>
+                        </a>
+                        <hr class="star-light">
+                        <span class="skills">                           
+                            
+                        </span>
+                    </div>
+                       </div>
+                        <div class="intro-text">
+                        <a href="../graficas/script.php">
+                            <span class="name" id="blanco">Gráficas de la web</span>
+                        </a>
+                        <hr class="star-light">
+                        <span class="skills">                           
+                            
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>

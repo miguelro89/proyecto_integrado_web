@@ -28,15 +28,12 @@
        session_destroy();
      header("Location:../");
     }else{
-        $connection = new mysqli('localhost','id1022280_root', '12345', 'id1022280_proyecto');
-           $id=$_GET['id'];
-        $consulta="SELECT * FROM canciones WHERE id_cancion=$id";
-        $result= $connection -> query($consulta);
-        
-        if(!$result){
-            echo "error al obtener datos de la cancion";
-        }else{
+        include '../../../conexion.php';
+        if ($result = $connection->query("SELECT * FROM canciones;")) {
              $ver_datos = $result->fetch_object();
+            
+        }else{
+            echo "error al obtener datos de la cancion";
         }
         //TESTING IF THE CONNECTION WAS RIGHT
         if ($connection->connect_errno) {
